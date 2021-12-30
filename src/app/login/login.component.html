@@ -1,0 +1,15 @@
+<div fxLayoutAlign = "center center" fxFlexFill class="main-div">
+    <mat-card fxFlex="15">
+        <mat-toolbar color="primary">Login Page</mat-toolbar>
+        <form [formGroup] = "loginForm" (submit)="loginUser()" fxLayoutAlign="stratch" fxLayout="column" class="login-form">
+            <mat-form-field>
+              <input matInput placeholder="Mail" [formControlName]="'mail'">
+            </mat-form-field>
+          
+            <mat-form-field>
+                <input matInput type="password" placeholder="Pasword" [formControlName]="'password'">
+            </mat-form-field>
+            <button mat-raised-button type="submit">Login</button>
+          </form>
+    </mat-card>
+</div>

@@ -1,0 +1,32 @@
+<div fxLayoutAlign = "center center" fxFlexFill class="main-div">
+    <mat-card fxFlex="30">
+        <mat-toolbar color="primary">Create User</mat-toolbar>
+        <form fxLayoutAlign="stratch" fxLayout="column" (submit)="createUser()" class="create-user" [formGroup]="createform">
+            <mat-form-field appearance="fill">
+                <mat-label>name</mat-label>
+                <input type="text" matInput [formControlName]="'name'">
+            </mat-form-field>
+            <mat-form-field appearance="fill">
+                <mat-label>lastName</mat-label>
+                <input type="text" matInput [formControlName]="'lastName'">
+            </mat-form-field>
+            <mat-form-field appearance="fill">
+                <mat-label>mail</mat-label>
+                <input type="email" matInput [formControlName]="'mail'">
+            </mat-form-field>
+            <mat-form-field appearance="fill">
+                <mat-label>password</mat-label>
+                <input type="text" matInput [formControlName]="'password'">
+            </mat-form-field>
+
+            <section class="example-section" [formGroup]="roles">
+                <h4>Select roles:</h4>
+                <p><mat-checkbox [formControlName]="'can_read_users_box'">can_read_users</mat-checkbox></p>
+                <p><mat-checkbox [formControlName]="'can_create_users_box'">can_create_users</mat-checkbox></p>
+                <p><mat-checkbox [formControlName]="'can_update_users_box'">can_update_users</mat-checkbox></p>
+                <p><mat-checkbox [formControlName]="'can_delete_users_box'">can_delete_users</mat-checkbox></p>
+            </section>
+            <button mat-raised-button type="submit" color="accent">Create</button>
+        </form>
+    </mat-card>
+</div>

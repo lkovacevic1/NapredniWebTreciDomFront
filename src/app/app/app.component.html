@@ -1,0 +1,12 @@
+
+<mat-toolbar *ngIf="hasToken()" color="primary" class="mat-elevation-z6">
+    <span><mat-icon>supervised_user_circle</mat-icon>User Managment</span>
+
+    <div class="spacer"></div>
+    <a mat-button [routerLink]="''">Home</a>
+    <a *ngIf="userService.getCanReadUser()" mat-button [routerLink]="'allusers'">Users</a>
+    <a *ngIf="userService.getCanCreateUser()" mat-button [routerLink]="'createuser'">Create user</a>
+    <a mat-raised-button color="accent" (click)="deleteToken()" [routerLink]="'login'">Sign out</a>
+</mat-toolbar>
+
+<router-outlet></router-outlet>
