@@ -45,11 +45,9 @@ export class UserService {
   }
 
   public getAllRoles(): void{
-    console.log(this.headers)
     this.http.get<Role[]>(`${this.apiServerUrl}/roles`, { 'headers': this.headers }).subscribe(response => {
       this.roles = response
       localStorage.setItem('roles', JSON.stringify(this.roles));
-      console.log(this.roles)
       if(this.roles.length===0){
         alert("Nemate ni jednu dozvolu!")
       }
