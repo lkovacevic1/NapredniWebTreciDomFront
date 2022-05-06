@@ -38,7 +38,7 @@ export class LoginComponent implements OnInit {
     }
     this.userService.loginUser(this.userLoginIngo).subscribe(login => {
       localStorage.setItem("token", login.jwt);
-      this.userService.setHeaders();
+      this.userService.setHeaders(login.jwt);
       this.userService.getAllRoles();
       this.router.navigate([""]);
     })

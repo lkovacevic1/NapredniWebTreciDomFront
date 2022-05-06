@@ -1,7 +1,7 @@
 <div fxLayoutAlign = "center center" fxFlexFill class="main-div">
-    <mat-card fxFlex="30">
+    <mat-card fxFlex="50">
         <mat-toolbar color="primary">Create User</mat-toolbar>
-        <form fxLayoutAlign="stratch" fxLayout="column" (submit)="createUser()" class="create-user" [formGroup]="createform">
+        <form fxLayoutAlign="stretch" fxLayout="column" (submit)="createUser()" class="create-user" [formGroup]="createform">
             <mat-form-field appearance="fill">
                 <mat-label>name</mat-label>
                 <input type="text" matInput [formControlName]="'name'">
@@ -21,10 +21,29 @@
 
             <section class="example-section" [formGroup]="roles">
                 <h4>Select roles:</h4>
-                <p><mat-checkbox [formControlName]="'can_read_users_box'">can_read_users</mat-checkbox></p>
-                <p><mat-checkbox [formControlName]="'can_create_users_box'">can_create_users</mat-checkbox></p>
-                <p><mat-checkbox [formControlName]="'can_update_users_box'">can_update_users</mat-checkbox></p>
-                <p><mat-checkbox [formControlName]="'can_delete_users_box'">can_delete_users</mat-checkbox></p>
+                <div class="container">
+                    <div class="row">
+                      <div class="col-sm">
+                            <p><mat-checkbox [formControlName]="'can_read_users_box'">can_read_users</mat-checkbox></p>
+                            <p><mat-checkbox [formControlName]="'can_create_users_box'">can_create_users</mat-checkbox></p>
+                            <p><mat-checkbox [formControlName]="'can_update_users_box'">can_update_users</mat-checkbox></p>
+                        </div>
+                        <div class="col-sm">
+                            <p><mat-checkbox [formControlName]="'can_delete_users_box'">can_delete_users</mat-checkbox></p>
+                            <p><mat-checkbox [formControlName]="'can_search_machines'">can_search_machines</mat-checkbox></p>
+                            <p><mat-checkbox [formControlName]="'can_read_machines'">can_read_machines</mat-checkbox></p>
+                        </div>
+                        <div class="col-sm">
+                            <p><mat-checkbox [formControlName]="'can_start_machines'">can_start_machines</mat-checkbox></p>
+                            <p><mat-checkbox [formControlName]="'can_stop_machines'">can_stop_machines</mat-checkbox></p>
+                            <p><mat-checkbox [formControlName]="'can_restart_machines'">can_restart_machines</mat-checkbox></p>
+                        </div>
+                        <div class="col-sm">
+                            <p><mat-checkbox [formControlName]="'can_create_machines'">can_create_machines</mat-checkbox></p>
+                            <p><mat-checkbox [formControlName]="'can_destroy_machines'">can_destroy_machines</mat-checkbox></p>
+                        </div>
+                    </div>
+                  </div>
             </section>
             <button mat-raised-button type="submit" color="accent">Create</button>
         </form>

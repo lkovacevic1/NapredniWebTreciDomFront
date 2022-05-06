@@ -22,6 +22,13 @@ import { UpdatedialogComponent } from './updatedialog/updatedialog.component';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import { HomeComponent } from './home/home.component';
+import { AllmachinesComponent } from './allmachines/allmachines.component';
+import { CreatemachineComponent } from './createmachine/createmachine.component';
+import { ScheduleMachineComponent } from './schedule-machine/schedule-machine.component';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import {MatNativeDateModule} from '@angular/material/core';
+import {MatMenuModule} from '@angular/material/menu';
+import { HistoryerrorComponent } from './historyerror/historyerror.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +38,11 @@ import { HomeComponent } from './home/home.component';
     AllusersComponent,
     CreateuserComponent,
     UpdatedialogComponent,
-    HomeComponent
+    HomeComponent,
+    AllmachinesComponent,
+    CreatemachineComponent,
+    ScheduleMachineComponent,
+    HistoryerrorComponent
   ],
   imports: [
     BrowserModule,
@@ -49,7 +60,10 @@ import { HomeComponent } from './home/home.component';
     MatIconModule,
     MatTableModule,
     MatDialogModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatMenuModule
   ],
   providers: [],
   bootstrap: [AppComponent]

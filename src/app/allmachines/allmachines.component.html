@@ -1,0 +1,72 @@
+<!-- Search forma -->
+<form class="form-inline my-2 my-lg-0" >
+  <input type="search" [(ngModel)] = "name"
+  name="key" id="searchName" class="form-control mr-sm-2" placeholder="Search name..." >
+
+  <input type="search" [(ngModel)] = "status"
+  name="key" id="searchStatus" class="form-control mr-sm-2" placeholder="Search status..." >
+
+  <input type="date" [(ngModel)] = "dateFrom"
+  name="key" id="searchDateFrom" class="form-control mr-sm-2" placeholder="Search date from...">
+
+  <input type="date" [(ngModel)] = "dateTo"
+  name="key" id="searchDateTo" class="form-control mr-sm-2" placeholder="Search date to...">
+
+  <button mat-raised-button type="submit" color="accent" (click)="searchMachines()">Search</button>
+</form>
+
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+    <!--- Note that these columns can be defined in any order.
+          The actual rendered columns are set as a property on the row definition" -->
+
+    <ng-container matColumnDef="Status">
+      <th mat-header-cell *matHeaderCellDef> Status </th>
+      <td mat-cell *matCellDef="let machine"> {{machine.status}} </td>
+    </ng-container>
+  
+    <!-- Created By -->
+    <ng-container matColumnDef="Created By">
+      <th mat-header-cell *matHeaderCellDef> Created By </th>
+      <td mat-cell *matCellDef="let machine"> {{machine.createdBy.mail}} </td>
+    </ng-container>
+  
+    <!-- Active -->
+    <ng-container matColumnDef="Active">
+      <th mat-header-cell *matHeaderCellDef> Active </th>
+      <td mat-cell *matCellDef="let machine"> {{machine.active}} </td>
+    </ng-container>
+
+    <!-- Name-->
+    <ng-container matColumnDef="Name">
+      <th mat-header-cell *matHeaderCellDef> Name </th>
+      <td mat-cell *matCellDef="let machine"> {{machine.name}} </td>
+    </ng-container>
+
+    <!-- Created -->
+    <ng-container matColumnDef="Created">
+      <th mat-header-cell *matHeaderCellDef> Created </th>
+      <td mat-cell *matCellDef="let machine"> {{machine.created}} </td>
+    </ng-container>
+
+    <!-- Action -->
+    <ng-container matColumnDef="Actions">
+      <th mat-header-cell *matHeaderCellDef> Actions </th>
+      <td mat-cell *matCellDef="let machine" class="action-link">  
+        <button mat-flat-button color="warn" *ngIf="userService.getCanDestroyMachine()"(click)="deleteMachine(machine)">Delete</button>| 
+        <button mat-flat-button color="primary" *ngIf="userService.getCanStartMachine()"(click)="startMachine(machine)">Start</button>|  
+        <button mat-flat-button color="accent" *ngIf="userService.getCanStopMachine()"(click)="stopMachine(machine)">Stop</button>| 
+        <button mat-flat-button *ngIf="userService.getCanRestartMachine()"(click)="restartMachine(machine)">Restart</button> 
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="Schedule">
+      <th mat-header-cell *matHeaderCellDef> Schedule </th>
+      <td mat-cell *matCellDef="let machine" class="action-link">  
+        <button mat-flat-button color="primary" (click)="onOpenModal(machine)">Schedule</button>
+      </td>
+    </ng-container>
+  
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>

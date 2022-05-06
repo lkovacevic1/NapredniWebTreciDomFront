@@ -1,0 +1,12 @@
+<div fxLayoutAlign = "center center" fxFlexFill class="main-div">
+    <mat-card fxFlex="30">
+        <mat-toolbar color="primary">Create Machine</mat-toolbar>
+        <form fxLayoutAlign="stratch" fxLayout="column" (submit)="createMachine()" class="create-user" [formGroup]="createmachineform">
+            <mat-form-field appearance="fill">
+                <mat-label>name</mat-label>
+                <input type="text" matInput [formControlName]="'name'">
+            </mat-form-field>
+            <button mat-raised-button type="submit" color="accent">Create</button>
+        </form>
+    </mat-card>
+</div>

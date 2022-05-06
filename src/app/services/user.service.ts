@@ -20,6 +20,8 @@ export class UserService {
       .set('Authorization', `Bearer ${localStorage.getItem("token")}`)
 
       this.roles = [];
+
+      this.getAllRoles();
   }
 
   public loginUser(loginInfo: UserLoginInfo): Observable<UserResponse>{
@@ -54,8 +56,9 @@ export class UserService {
     });
   }
 
-  public setHeaders(){
-    this.headers = this.headers.set('Authorization', `Bearer ${localStorage.getItem("token")}`);
+  public setHeaders(token: string){
+    console.log(token)
+    this.headers = this.headers.set('Authorization', `Bearer ${token}`);
   }
 
   public logout(){
@@ -81,5 +84,33 @@ export class UserService {
 
   public getCanReadUser(): boolean{
     return this.getRoles().includes("can_read_users")
+  }
+
+  public getCanReadMachine(): boolean{
+    return this.getRoles().includes("can_read_machines")
+  }
+
+  public getCanDestroyMachine(): boolean{
+    return this.getRoles().includes("can_destroy_machines")
+  }
+
+  public getCanStartMachine(): boolean{
+    return this.getRoles().includes("can_start_machines")
+  }
+
+  public getCanStopMachine(): boolean{
+    return this.getRoles().includes("can_stop_machines")
+  }
+
+  public getCanRestartMachine(): boolean{
+    return this.getRoles().includes("can_restart_machines")
+  }
+
+  public getCanCreateMachine(): boolean{
+    return this.getRoles().includes("can_create_machines")
+  }
+
+  public getCanSearchMachine(): boolean{
+    return this.getRoles().includes("can_search_machines")
   }
 }

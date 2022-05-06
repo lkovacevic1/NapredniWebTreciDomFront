@@ -6,6 +6,9 @@
     <a mat-button [routerLink]="''">Home</a>
     <a *ngIf="userService.getCanReadUser()" mat-button [routerLink]="'allusers'">Users</a>
     <a *ngIf="userService.getCanCreateUser()" mat-button [routerLink]="'createuser'">Create user</a>
+    <a *ngIf="userService.getCanReadMachine()" mat-button [routerLink]="'allmachines'">Machines</a>
+    <a *ngIf="userService.getCanCreateMachine()" mat-button [routerLink]="'createmachine'">Create Machine</a>
+    <a *ngIf="userService.getCanStartMachine() || userService.getCanStartMachine() || userService.getCanRestartMachine()" mat-button [routerLink]="'histroyError'">Error Message</a>
     <a mat-raised-button color="accent" (click)="deleteToken()" [routerLink]="'login'">Sign out</a>
 </mat-toolbar>
 

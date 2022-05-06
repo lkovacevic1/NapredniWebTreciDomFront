@@ -20,7 +20,14 @@ export class CreateuserComponent implements OnInit {
       can_read_users_box: [''],
       can_create_users_box: [''],
       can_update_users_box: [''],
-      can_delete_users_box: ['']
+      can_delete_users_box: [''],
+      can_search_machines: [''],
+      can_read_machines: [''],
+      can_start_machines: [''],
+      can_stop_machines: [''],
+      can_restart_machines: [''],
+      can_create_machines: [''],
+      can_destroy_machines:[''],
     });
     this.createform = formBuilder.group({
       name: ['', Validators.required],
@@ -46,6 +53,28 @@ export class CreateuserComponent implements OnInit {
     if(this.roles.get('can_delete_users_box')?.value){
       this.allRoles.push({id: 4, name: "can_delete_users"})
     }
+    if(this.roles.get('can_search_machines')?.value){
+      this.allRoles.push({id: 5, name: "can_search_machines"})
+    }
+    if(this.roles.get('can_read_machines')?.value){
+      this.allRoles.push({id: 6, name: "can_read_machines"})
+    }
+    if(this.roles.get('can_start_machines')?.value){
+      this.allRoles.push({id: 7, name: "can_start_machines"})
+    }
+    if(this.roles.get('can_stop_machines')?.value){
+      this.allRoles.push({id: 8, name: "can_stop_machines"})
+    }
+    if(this.roles.get('can_restart_machines')?.value){
+      this.allRoles.push({id: 9, name: "can_restart_machines"})
+    }
+    if(this.roles.get('can_create_machines')?.value){
+      this.allRoles.push({id: 10, name: "can_create_machines"})
+    }
+    if(this.roles.get('can_destroy_machines')?.value){
+      this.allRoles.push({id: 11, name: "can_destroy_machines"})
+    }
+
     const insertUser: InsertUser = {
                                     name: this.createform.get('name')?.value, 
                                     lastName: this.createform.get('lastName')?.value, 
